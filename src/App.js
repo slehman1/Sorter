@@ -19,20 +19,15 @@ function App() {
       const newObj = {num: tempNum, isSelected: false, isSorted: false, isDone: false}
       tempArray.push(newObj)
     }
-    const selectArray = tempArray.slice()
-    const bubbleArray = tempArray.slice()
-    const mergeArray = tempArray.slice()
-    setnumsSelectArray(selectArray)
-    setnumsBubbleArray(bubbleArray)
-    setnumsMergeArray(mergeArray)
-    // setRenderedSelectionDivs(myArray)
-    // setRenderedBubbleDivs(myArray)
-    // setRenderedMergeDivs(myArray)
+    setnumsSelectArray(JSON.parse(JSON.stringify(tempArray)))
+    setnumsBubbleArray(JSON.parse(JSON.stringify(tempArray)))
+    setnumsMergeArray(JSON.parse(JSON.stringify(tempArray)))
   }
+  
 
   function startSort(){
-    // beginSelectionSort()
-    // beginBubbleSort()
+    beginSelectionSort()
+    beginBubbleSort()
     // beginMergeSort()
   }
 
@@ -129,7 +124,6 @@ function App() {
 
   async function mergerHelper(leftArray, rightArray){
     const sortedArray = []
-    console.log(leftArray.length, rightArray.length)
     while (leftArray.length && rightArray.length){
       
       if (leftArray[0].num <= rightArray[0].num){
